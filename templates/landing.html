@@ -1,0 +1,381 @@
+{% extends "base.html" %}
+
+{% block title %}Smart Greenhouse Decision Support System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-white py-5 px-4 mb-5 rounded-4 shadow-lg position-relative overflow-hidden">
+    <div class="hero-backdrop-pattern"></div>
+    <div class="row align-items-center position-relative z-1">
+        <div class="col-lg-7 mb-4 mb-lg-0">
+            <div class="hero-top-badge d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3">
+                <span class="badge bg-success me-2"><i class="fas fa-circle-check me-1"></i>Active</span>
+                <small class="fw-semibold text-white">IoT & AI-Powered Smart Greenhouse Platform</small>
+            </div>
+            
+            <h1 class="display-4 fw-bold mb-3 lh-sm">
+                Intelligent Greenhouse <span class="text-warning">Decision Support</span> & Microclimate Simulation
+            </h1>
+            
+            <p class="lead mb-4 text-light opacity-90">
+                Empowering tomato growers and agricultural researchers with real-time IoT sensor telemetry, machine learning irrigation forecasting, smart fertilization scheduling, and risk-free microclimate physics simulation.
+            </p>
+            
+            <div class="d-flex flex-wrap gap-3">
+                {% if 'user_id' in session %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-warning btn-lg px-4 py-2 rounded-pill fw-bold shadow-sm">
+                        <i class="fas fa-gauge-high me-2"></i>Go to Live Dashboard
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('register') }}" class="btn btn-warning btn-lg px-4 py-2 rounded-pill fw-bold shadow-sm">
+                        <i class="fas fa-rocket me-2"></i>Get Started Free
+                    </a>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-bold">
+                        <i class="fas fa-sign-in-alt me-2"></i>Member Login
+                    </a>
+                {% endif %}
+                <a href="{{ url_for('information') }}" class="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold text-success">
+                    <i class="fas fa-circle-info me-2"></i>System Details
+                </a>
+            </div>
+
+            <!-- Live Status Ticker -->
+            <div class="mt-4 pt-3 border-top border-white border-opacity-25 d-flex flex-wrap align-items-center gap-4 text-white-50 small">
+                <div><i class="fas fa-microchip text-warning me-1"></i> <strong>ESP32 / Virtual Sensor</strong> Dual-Mode</div>
+                <div><i class="fas fa-shield-halved text-info me-1"></i> <strong>Closed-Loop Safety</strong> Cutoff Active</div>
+                <div><i class="fas fa-cloud text-light me-1"></i> <strong>Real-Time Firebase</strong> Telemetry Sync</div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 text-center">
+            <div class="hero-snapshot-container p-4 rounded-4 shadow-lg text-start">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-white fw-bold mb-0">
+                        <i class="fas fa-satellite-dish me-2 text-warning"></i>Live Greenhouse Snapshot
+                    </h6>
+                    <span class="badge bg-success bg-opacity-75 text-white px-2 py-1">
+                        <i class="fas fa-circle text-white me-1 small"></i>Online
+                    </span>
+                </div>
+                
+                <div class="row g-3 mb-3">
+                    <div class="col-6">
+                        <div class="hero-metric-card">
+                            <span class="hero-metric-label">
+                                <i class="fas fa-temperature-high text-danger"></i> Temperature
+                            </span>
+                            <div class="hero-metric-value text-dark">
+                                {{ sensor_data.get('temperature', 26.5) }} <span class="hero-metric-unit">°C</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="hero-metric-card">
+                            <span class="hero-metric-label">
+                                <i class="fas fa-droplet text-primary"></i> Humidity
+                            </span>
+                            <div class="hero-metric-value text-dark">
+                                {{ sensor_data.get('humidity', 68.0) }} <span class="hero-metric-unit">%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="hero-metric-card">
+                            <span class="hero-metric-label">
+                                <i class="fas fa-seedling text-success"></i> Soil Moisture
+                            </span>
+                            <div class="hero-metric-value text-dark">
+                                {{ sensor_data.get('soilMoisture', 2400) }} <span class="hero-metric-unit">ADC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="hero-metric-card">
+                            <span class="hero-metric-label">
+                                <i class="fas fa-sun text-warning"></i> Light Level
+                            </span>
+                            <div class="hero-metric-value text-dark">
+                                {{ sensor_data.get('lightLevel', 12.0) }} <span class="hero-metric-unit">lux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-ai-badge p-2 rounded-3 text-center small text-light border border-white border-opacity-20">
+                    <i class="fas fa-robot text-warning me-1"></i> AI Recommendation: <strong class="text-white">Optimal vegetative growth envelope</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Key Performance Metrics Bar -->
+<div class="row g-3 mb-5">
+    <div class="col-md-3 col-6">
+        <div class="card h-100 border-0 shadow-sm text-center p-3 stat-card">
+            <div class="stat-icon-wrap text-success mb-2">
+                <i class="fas fa-droplet-slash fa-2x"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-1">31.4%</h3>
+            <p class="text-muted small mb-0 fw-semibold">Water Savings vs. Fixed Timers</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card h-100 border-0 shadow-sm text-center p-3 stat-card">
+            <div class="stat-icon-wrap text-primary mb-2">
+                <i class="fas fa-bullseye fa-2x"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-1">R² = 0.941</h3>
+            <p class="text-muted small mb-0 fw-semibold">ML Irrigation Model Accuracy</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card h-100 border-0 shadow-sm text-center p-3 stat-card">
+            <div class="stat-icon-wrap text-warning mb-2">
+                <i class="fas fa-flask-vial fa-2x"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-1">92.4%</h3>
+            <p class="text-muted small mb-0 fw-semibold">Fertilizer Timing Classification</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card h-100 border-0 shadow-sm text-center p-3 stat-card">
+            <div class="stat-icon-wrap text-info mb-2">
+                <i class="fas fa-star fa-2x"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-1">90.6 / 100</h3>
+            <p class="text-muted small mb-0 fw-semibold">SUS Usability Score (Grade A+)</p>
+        </div>
+    </div>
+</div>
+
+<!-- System Features Grid -->
+<div class="mb-5">
+    <div class="text-center mb-5">
+        <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-bold mb-2">
+            CORE PLATFORM CAPABILITIES
+        </span>
+        <h2 class="fw-bold text-dark">Comprehensive Decision Support for Tomato Cultivation</h2>
+        <p class="text-muted max-w-700 mx-auto">
+            From sensor-level automation to machine learning intelligence, our platform bridges the gap between hardware constraints and precision agriculture.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Feature 1: Real-Time Telemetry -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-primary bg-opacity-10 text-primary mb-3">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Real-Time Telemetry & Monitoring</h5>
+                <p class="text-muted small mb-3">
+                    Continuous monitoring of temperature, relative humidity, capacitive soil volumetric moisture, ambient light, and water reservoir levels with sub-second cloud synchronization.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">ESP32 & Firebase Realtime</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 2: AI Irrigation -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-success bg-opacity-10 text-success mb-3">
+                    <i class="fas fa-tint fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">AI Precision Irrigation Forecasting</h5>
+                <p class="text-muted small mb-3">
+                    Polynomial Regression ($R^2 = 0.941$) dynamically calculates optimal per-plant water volume based on real-time evapotranspiration physics rather than static timers.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">Polynomial Regression + ML</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 3: Smart Fertilization -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-warning bg-opacity-10 text-warning mb-3">
+                    <i class="fas fa-flask fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Smart Nutrient & Fertilizer Scheduling</h5>
+                <p class="text-muted small mb-3">
+                    Random Forest & Gradient Boosting models predict tailored NPK dosage (kg/ha) and application timing based on soil substrate type, crop growth stage, and land area.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">Random Forest & Gradient Boost</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 4: Harvest Prediction -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-info bg-opacity-10 text-info mb-3">
+                    <i class="fas fa-calendar-check fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Harvest Maturity Estimation</h5>
+                <p class="text-muted small mb-3">
+                    Forecasts exact tomato maturity dates (Mean Absolute Error = 2.1 days) by tracking cumulative Growing Degree-Days (GDD), photoperiod hours, and growth stages.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">Phenological Regression</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 5: Hardware Simulation Engine -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-danger bg-opacity-10 text-danger mb-3">
+                    <i class="fas fa-microchip fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Interactive Physics Simulation Engine</h5>
+                <p class="text-muted small mb-3">
+                    Test heatwaves (>40°C), dry soil, empty reservoirs, and overflow hazards in a risk-free virtual environment with zero hardware cost and zero live crop danger.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">Thread-Safe Physics Daemon</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 6: Closed-Loop Safety -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                <div class="feature-icon bg-secondary bg-opacity-10 text-secondary mb-3">
+                    <i class="fas fa-shield-halved fa-2x"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Closed-Loop Pot Overflow Safety</h5>
+                <p class="text-muted small mb-3">
+                    Intelligent sensor interlocks trigger automatic pump cutoff when pot water level exceeds 1000 ADC, preventing root rot, hypoxia, and fertilizer runoff.
+                </p>
+                <div class="mt-auto">
+                    <span class="badge bg-light text-dark border">Automated Relay Interlocks</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="bg-light p-5 rounded-4 shadow-sm mb-5 border">
+    <div class="text-center mb-5">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold mb-2">
+            OPERATIONAL WORKFLOW
+        </span>
+        <h2 class="fw-bold text-dark">How the Decision Support System Works</h2>
+        <p class="text-muted max-w-700 mx-auto">
+            A seamless three-stage cyber-physical loop connecting microclimate sensing, machine learning prediction, and automated execution.
+        </p>
+    </div>
+
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
+                <div class="step-badge bg-success text-white rounded-circle mx-auto mb-3 fw-bold fs-5">1</div>
+                <h5 class="fw-bold text-dark mb-2">Sense & Simulate</h5>
+                <p class="text-muted small mb-0">
+                    Physical ESP32 IoT sensors or the background physics engine capture continuous temperature, humidity, soil moisture, and light telemetry.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
+                <div class="step-badge bg-primary text-white rounded-circle mx-auto mb-3 fw-bold fs-5">2</div>
+                <h5 class="fw-bold text-dark mb-2">Predict & Analyze</h5>
+                <p class="text-muted small mb-0">
+                    Scikit-Learn ML pipelines process polynomial interactions and ensemble algorithms to compute precise water liters and fertilizer dosage.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
+                <div class="step-badge bg-warning text-dark rounded-circle mx-auto mb-3 fw-bold fs-5">3</div>
+                <h5 class="fw-bold text-dark mb-2">Automate & Protect</h5>
+                <p class="text-muted small mb-0">
+                    Intelligent relay controllers trigger ventilation fans, pumps, or alarm buzzers while enforcing closed-loop pot overflow protection.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dual-Mode Architecture Highlight -->
+<div class="card border-0 shadow-sm overflow-hidden mb-5">
+    <div class="row g-0">
+        <div class="col-lg-6 bg-dark text-white p-5 d-flex flex-column justify-content-center">
+            <span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold mb-3 align-self-start">
+                <i class="fas fa-code-compare me-1"></i>DUAL-MODE FLEXIBILITY
+            </span>
+            <h3 class="fw-bold mb-3">Bridging Virtual Simulation and Real Hardware</h3>
+            <p class="text-light opacity-75 mb-4">
+                Traditional agricultural IoT setups are hardware-bound and expensive. Our system implements a dual-mode software abstraction:
+            </p>
+            <ul class="list-unstyled text-light mb-4">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Simulation Mode:</strong> Experiment with severe climate conditions, calibrate thresholds, and train operators risk-free.</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Live IoT Mode:</strong> Connect physical ESP32 microcontrollers streaming real sensor data over Google Firebase with zero code modification.</li>
+            </ul>
+            <div>
+                <a href="{{ url_for('information') }}" class="btn btn-outline-light rounded-pill px-4">
+                    <i class="fas fa-book-open me-2"></i>Read Full Architecture Specs
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 bg-white p-5 d-flex flex-column justify-content-center border-start">
+            <h4 class="fw-bold text-dark mb-3"><i class="fas fa-seedling text-success me-2"></i>Tomato Agronomic Optimizations</h4>
+            <div class="d-flex align-items-center p-3 bg-light rounded-3 mb-3 border">
+                <i class="fas fa-thermometer-half text-danger fa-2x me-3"></i>
+                <div>
+                    <h6 class="fw-bold mb-0">Temperature Range (21°C – 27°C)</h6>
+                    <small class="text-muted">Prevents flower blossom drop and RuBisCO enzyme denaturation.</small>
+                </div>
+            </div>
+            <div class="d-flex align-items-center p-3 bg-light rounded-3 mb-3 border">
+                <i class="fas fa-cloud-rain text-info fa-2x me-3"></i>
+                <div>
+                    <h6 class="fw-bold mb-0">Relative Humidity (60% – 80%)</h6>
+                    <small class="text-muted">Maintains optimal Vapor Pressure Deficit (VPD 0.8–1.2 kPa) and prevents Blossom End Rot.</small>
+                </div>
+            </div>
+            <div class="d-flex align-items-center p-3 bg-light rounded-3 border">
+                <i class="fas fa-shield-heart text-success fa-2x me-3"></i>
+                <div>
+                    <h6 class="fw-bold mb-0">Pot Water Cutoff (&lt; 1000 ADC)</h6>
+                    <small class="text-muted">Eliminates root-zone hypoxia and anaerobic pathogenic fungal infections.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Banner -->
+<div class="cta-banner text-center text-white p-5 rounded-4 shadow-lg mb-4">
+    <h2 class="fw-bold mb-3">Ready to Optimize Your Greenhouse Operations?</h2>
+    <p class="lead mb-4 text-light opacity-90 max-w-700 mx-auto">
+        Access real-time microclimate analytics, AI-driven irrigation forecasting, and smart automation rules today.
+    </p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+        {% if 'user_id' in session %}
+            <a href="{{ url_for('dashboard') }}" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                <i class="fas fa-gauge-high me-2"></i>Go to System Dashboard
+            </a>
+        {% else %}
+            <a href="{{ url_for('register') }}" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                <i class="fas fa-user-plus me-2"></i>Create An Account
+            </a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold">
+                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+            </a>
+        {% endif %}
+        <a href="{{ url_for('information') }}" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-bold text-success">
+            <i class="fas fa-circle-info me-2"></i>Explore Detailed Information
+        </a>
+    </div>
+</div>
+{% endblock %}

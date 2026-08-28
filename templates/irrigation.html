@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+
+        <!-- Sensor Data Overview -->
+        <div class="card shadow-sm mb-4 border-0 bg-light">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-sensor me-2"></i>Current Sensor Readings</h5>
+                <div class="row text-center">
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="p-2 bg-primary bg-opacity-10 rounded">
+                            <small class="text-muted">Temperature</small>
+                            <p class="mb-0 fw-bold">{{ sensor_data.get('temperature', 'N/A') }} °C</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="p-2 bg-info bg-opacity-10 rounded">
+                            <small class="text-muted">Humidity</small>
+                            <p class="mb-0 fw-bold">{{ sensor_data.get('humidity', 'N/A') }}%</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="p-2 bg-success bg-opacity-10 rounded">
+                            <small class="text-muted">Soil Moisture</small>
+                            <p class="mb-0 fw-bold">{{ sensor_data.get('soilMoisture', 'N/A') }}%</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="p-2 bg-warning bg-opacity-10 rounded">
+                            <small class="text-muted">Light Level</small>
+                            <p class="mb-0 fw-bold">{{ sensor_data.get('lightLevel', 'N/A') }} lux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h2 class="card-title mb-4 text-center">Irrigation Water Requirement Prediction</h2>
+                    <p class="text-muted text-center mb-4">Enter the environmental details below to predict the water
+                        required for irrigation.</p>
+                    <form method="POST">
+                        <!-- Environmental Inputs -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="temperature" class="form-label">Temperature (°C)</label>
+                                <input type="number" step="any" class="form-control form-control-lg" id="temperature"
+                                    name="temperature" value="{{ temperature }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="humidity" class="form-label">Humidity (%)</label>
+                                <input type="number" step="any" class="form-control form-control-lg" id="humidity"
+                                    name="humidity" value="{{ humidity }}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="soil_moisture" class="form-label">Soil Moisture (%)</label>
+                                <input type="number" step="any" class="form-control form-control-lg" id="soil_moisture"
+                                    name="soil_moisture" value="{{ soil_moisture }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="light_level" class="form-label">Light Level (lux)</label>
+                                <input type="number" step="any" class="form-control form-control-lg" id="light_level"
+                                    name="light_level" value="{{ light_level }}" required>
+                            </div>
+                        </div>
+
+                        <!-- Plant Count Method Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Plant Count Calculation Method</label>
+                            <div class="card border-0 shadow-sm mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-check card-radio">
+                                                <input class="form-check-input" type="radio" name="count_method"
+                                                    id="directCount" value="direct" {% if count_method=='direct' or
+                                                    count_method is none %}checked{% endif %}>
+                                                <label class="form-check-label" for="directCount">
+                                                    <span class="d-block fw-semibold">Direct Plant Count</span>
+                                                    <small class="d-block text-muted">Enter exact number of
+                                                        plants</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check card-radio">
+                                                <input class="form-check-input" type="radio" name="count_method"
+                                                    id="areaBased" value="area" {% if count_method=='area' %}checked{%
+                                                    endif %}>
+                                                <label class="form-check-label" for="areaBased">
+                                                    <span class="d-block fw-semibold">Calculate from Area</span>
+                                                    <small class="d-block text-muted">Based on greenhouse size</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Direct Count Field -->
+                        <div id="directCountField" class="mb-4" {% if count_method=='area' %}style="display: none;" {%
+                            endif %}>
+                            <label for="plant_count" class="form-label fw-bold">Total Tomato Plants</label>
+                            <div class="input-group">
+                                <input type="number" step="1" class="form-control form-control-lg" id="plant_count"
+                                    name="plant_count" value="{{ plant_count if plant_count is not none else 400 }}" {%
+                                    if count_method=='direct' or count_method is none %}required{% endif %}>
+                                <span class="input-group-text">plants</span>
+                            </div>
+                        </div>
+
+                        <!-- Area-Based Fields -->
+                        <div id="areaBasedFields" class="mb-4" {% if count_method !='area' %}style="display: none;" {%
+                            endif %}>
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <label for="greenhouse_area" class="form-label fw-bold">Greenhouse Area</label>
+                                    <div class="input-group">
+                                        <input type="number" step="0.1" class="form-control form-control-lg"
+                                            id="greenhouse_area" name="greenhouse_area"
+                                            value="{{ greenhouse_area if greenhouse_area is not none else 1000}}" {% if
+                                            count_method=='area' %}required{% endif %}>
+                                        <span class="input-group-text">m²</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="plant_gap" class="form-label fw-bold">Plant Spacing</label>
+                                    <select class="form-select form-select-lg" id="plant_gap" name="plant_gap">
+                                        <option value="0.5" {% if plant_gap == 0.5 %}selected{% endif %}>0.5m (Compact)</option>
+                                        <option value="1.0" {% if plant_gap == 1.0 %}selected{% endif %}>1.0m (Dense)</option>
+                                        <option value="1.5" {% if plant_gap == 1.5 or plant_gap is none %}selected{% endif %}>1.5m (Standard)</option>
+                                        <option value="2.0" {% if plant_gap == 2.0 %}selected{% endif %}>2.0m (Spacious)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="alert alert-info">
+                                <small><i class="fas fa-info-circle me-2"></i> System will calculate plant count
+                                    automatically based on area and spacing</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg w-100 py-3 mt-2">
+                            <i class="fas fa-calculator me-2"></i> Calculate Water Requirement
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if predicted_water_level is not none %}
+    <!-- Combined Prediction & Plant Count Card -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 bg-light">
+                <div class="card-body">
+                    <div class="row text-center">
+                        <!-- Predicted Water Requirement -->
+                        <div class="col-md-6 border-end">
+                            <h4 class="text-success">Per Plant Water Need</h4>
+                            {% if predicted_water_level == "Invalid input" %}
+                            <p class="fs-5 text-danger">Invalid Input</p>
+                            {% else %}
+                            <p class="display-6 fw-bold text-primary mb-0">{{ predicted_water_level | round(2) }}</p>
+                            <small class="text-muted">Liters</small>
+                            {% endif %}
+                        </div>
+
+                        <!-- Total Plant Count -->
+                        <div class="col-md-6">
+                            <h4 class="text-dark">Total Plant Count</h4>
+                            {% if plant_count is not none %}
+                            <p class="display-6 fw-bold text-success mb-0">{{ plant_count }}</p>
+                            <small class="text-muted">plants</small>
+                            {% else %}
+                            <p class="fs-5 text-muted">Not provided</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Highlighted Total Water Requirement Container -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 bg-gradient-primary text-white">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Total Water Requirement For All Plants</h3>
+                    {% if total_water_requirement == "Invalid input" %}
+                    <p class="fs-5 text-warning">Please enter valid numbers.</p>
+                    {% else %}
+                    <p class="display-3 fw-bold">{{ total_water_requirement | round(2) }} <small
+                            class="display-6">Liters</small></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Styled Reason for Prediction Container -->
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        {% set reason_class = "bg-light" %}
+        {% set animation_class = "animate__animated" %}
+        {% if "Critical" in prediction_reason %}
+            {% set reason_class = "bg-danger text-white" %}
+            {% set animation_class = animation_class + " animate__shakeX" %}
+        {% elif "Alert" in prediction_reason %}
+            {% set reason_class = "bg-warning" %}
+            {% set animation_class = animation_class + " animate__headShake" %}
+        {% elif "Warning" in prediction_reason %}
+            {% set reason_class = "bg-orange-200" %}
+            {% set animation_class = animation_class + " animate__pulse" %}
+        {% elif "Notice" in prediction_reason %}
+            {% set reason_class = "bg-info text-white" %}
+            {% set animation_class = animation_class + " animate__fadeIn" %}
+        {% else %}
+            {% set reason_class = "bg-success text-white" %}
+            {% set animation_class = animation_class + " animate__fadeInUp" %}
+        {% endif %}
+
+        <div class="card shadow-lg border-0 {{ reason_class }} {{ animation_class }}">
+            <div class="card-body text-center">
+                <h3 class="card-title">Reason for Prediction</h3>
+                {% if predicted_water_level != "Invalid input" %}
+                    <p class="fs-5">{{ prediction_reason }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    {% endif %}
+</div>
+
+<style>
+    .card-radio {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .card-radio:hover {
+        background-color: rgba(25, 135, 84, 0.05);
+    }
+
+    .card-radio .form-check-input {
+        margin-top: 0.3rem;
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    .card-radio .form-check-input:checked {
+        background-color: #198754;
+        border-color: #198754;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #0d6efd, #198754);
+    }
+
+    .form-select-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const methodRadios = document.querySelectorAll('input[name="count_method"]');
+        const directField = document.getElementById('directCountField');
+        const areaFields = document.getElementById('areaBasedFields');
+        const plantCountInput = document.getElementById('plant_count');
+        const areaInput = document.getElementById('greenhouse_area');
+
+        function toggleFields() {
+            const selectedMethod = document.querySelector('input[name="count_method"]:checked').value;
+
+            if (selectedMethod === 'direct') {
+                directField.style.display = 'block';
+                areaFields.style.display = 'none';
+                plantCountInput.required = true;
+                areaInput.required = false;
+            } else {
+                directField.style.display = 'none';
+                areaFields.style.display = 'block';
+                plantCountInput.required = false;
+                areaInput.required = true;
+            }
+        }
+
+        methodRadios.forEach(radio => {
+            radio.addEventListener('change', toggleFields);
+        });
+
+        // Initialize on page load
+        toggleFields();
+    });
+</script>
+{% endblock %}

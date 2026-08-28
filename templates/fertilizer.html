@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3"><i class="fas fa-flask me-2"></i>Fertilizer Prediction</h2>
+            <p class="text-muted">Calculate the optimal fertilizer quantity and application timing for your crops.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Last fertilizer date -->
+            {% if last_date %}
+                <div class="alert alert-success mb-4">
+                    <i class="fas fa-calendar-check me-2"></i>Last fertilizer application: <strong>{{ last_date }}</strong>
+                </div>
+            {% else %}
+                <div class="alert alert-warning mb-4">
+                    <i class="fas fa-exclamation-triangle me-2"></i>No fertilizer date recorded. Please enter your last application date.
+                </div>
+            {% endif %}
+
+            <!-- Date Update Button -->
+            <div class="text-end mb-4">
+                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#dateModal">
+                    <i class="fas fa-calendar-plus me-2"></i>Update Fertilizer Date
+                </button>
+            </div>
+
+            <!-- Prediction Form -->
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <form method="POST">
+                        <input type="hidden" name="submit_fertilizer_form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Humidity (%)</label>
+                                <input type="number" step="0.1" class="form-control" name="humidity" 
+                                       value="{{ sensor_data.get('humidity', '') }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Temperature (°C)</label>
+                                <input type="number" step="0.1" class="form-control" name="temperature" 
+                                       value="{{ sensor_data.get('temperature', '') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Fertilizer Type</label>
+                                <select class="form-select" name="fertilizer_type" required>
+                                    <option value="Ammonium Nitrate">Ammonium Nitrate</option>
+                                    <option value="Urea">Urea</option>
+                                    <option value="Potash">Potash</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Area planted (ha)</label>
+                                <input type="number" step="0.1" class="form-control" name="area_planted" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Soil Type</label>
+                                <select class="form-select" name="soil_type" required>
+                                    <option value="Clay">Clay</option>
+                                    <option value="Sandy">Sandy</option>
+                                    <option value="Loam">Loam</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Growth Stage</label>
+                                <select class="form-select" name="growth_stage" required>
+                                    <option value="Seedling">Seedling</option>
+                                    <option value="Vegetative">Vegetative</option>
+                                    <option value="Flowering">Flowering</option>
+                                    <option value="Maturity">Maturity</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg w-100 mt-3">
+                            <i class="fas fa-calculator me-2"></i>Predict Fertilizer Needs
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Prediction -->
+    {% if prediction %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 bg-light">
+                <div class="card-body text-center py-4">
+                    <h3 class="card-title text-primary mb-4"><i class="fas fa-chart-bar me-2"></i>Prediction Results</h3>
+                    
+                    {% if prediction.error %}
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-circle me-2"></i>{{ prediction.error }}
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-primary bg-opacity-10 rounded">
+                                    <h5 class="text-primary">Fertilizer Quantity</h5>
+                                    <p class="display-6 fw-bold">{{ prediction.quantity }} kg/ha</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="p-3 bg-info bg-opacity-10 rounded">
+                                    <h5 class="text-info">Application Timing</h5>
+                                    <p class="display-6 fw-bold">Week {{ prediction.timing }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {% if prediction.next_date %}
+                        <div class="alert alert-success mt-3">
+                            <i class="fas fa-calendar-day me-2"></i>
+                            <strong>Next Application Date:</strong> {{ prediction.next_date }}
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Date Modal -->
+<div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" class="modal-content">
+        <input type="hidden" name="submit_date_form">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dateModalLabel">
+            <i class="fas fa-calendar-alt me-2"></i>Update Fertilizer Date
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Last Fertilizer Application Date</label>
+        <input type="date" name="last_fertilizer_date" class="form-control" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save Date</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

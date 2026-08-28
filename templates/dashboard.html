@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h2>
+            <p class="text-muted">Welcome back, {{ session['username'] }}! Here's your plantation overview.</p>
+        </div>
+    </div>
+
+    <!-- Sensor Data Cards -->
+    <div class="row mb-4">
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card bg-primary bg-opacity-10 border-primary">
+                <div class="card-body text-center">
+                    <i class="fas fa-thermometer-half fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Temperature</h5>
+                    <p class="display-6">{{ sensor_data.get('temperature', 'N/A') }} °C</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card bg-info bg-opacity-10 border-info">
+                <div class="card-body text-center">
+                    <i class="fas fa-tint fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Humidity</h5>
+                    <p class="display-6">{{ sensor_data.get('humidity', 'N/A') }}%</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card bg-success bg-opacity-10 border-success">
+                <div class="card-body text-center">
+                    <i class="fas fa-seedling fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Soil Moisture</h5>
+                    <p class="display-6">{{ sensor_data.get('soilMoisture', 'N/A') }}%</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card bg-warning bg-opacity-10 border-warning">
+                <div class="card-body text-center">
+                    <i class="fas fa-sun fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Light Level</h5>
+                    <p class="display-6">{{ sensor_data.get('lightLevel', 'N/A') }} lux</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-tint fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Irrigation Prediction</h5>
+                    <p class="card-text">Predict optimal water levels for your plants</p>
+                    <a href="{{ url_for('irrigation') }}" class="btn btn-outline-primary">Go to Irrigation</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-flask fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Fertilizer Prediction</h5>
+                    <p class="card-text">Calculate fertilizer needs and timing</p>
+                    <a href="{{ url_for('fertilizer') }}" class="btn btn-outline-success">Go to Fertilizer</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-calendar-alt fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Harvest Prediction</h5>
+                    <p class="card-text">Estimate harvest time based on conditions</p>
+                    <a href="{{ url_for('harvest') }}" class="btn btn-outline-warning">Go to Harvest</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Water Requirement History</h2>
+
+    <!-- Water Prediction Chart -->
+    <canvas id="predictionChart" height="100"></canvas>
+
+    <!-- History Table -->
+    <div class="mt-5">
+        <table class="table table-striped table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Temp (°C)</th>
+                    <th>Humidity (%)</th>
+                    <th>Soil Moisture (%)</th>
+                    <th>Light (lux)</th>
+                    <th>Plant Count</th>
+                    <th>Per Plant (L)</th>
+                    <th>Total (L)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in logs %}
+                <tr>
+                    <td>{{ entry.timestamp[:19].replace('T', ' ') }}</td>
+                    <td>{{ entry.temperature }}</td>
+                    <td>{{ entry.humidity }}</td>
+                    <td>{{ entry.soil_moisture }}</td>
+                    <td>{{ entry.light_level }}</td>
+                    <td>{{ entry.plant_count }}</td>
+                    <td>
+                        {% if entry.per_plant_water is not none %}
+                            {{ entry.per_plant_water | round(2, 'floor') }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if entry.total_water is not none %}
+                            {{ entry.total_water | round(2, 'floor') }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Download Button -->
+    <div class="text-center mt-4">
+        <a href="{{ url_for('download_logs') }}" class="btn btn-outline-primary">
+            <i class="fas fa-download me-2"></i>Download Logs as CSV
+        </a>
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = [{% for entry in logs %}"{{ entry.timestamp[:19].replace('T', ' ') }}",{% endfor %}];
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Total Water (Liters)',
+            data: [{% for entry in logs %}{{ entry.total_water }},{% endfor %}],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true,
+            tension: 0.4
+        }]
+    };
+
+    new Chart(document.getElementById('predictionChart').getContext('2d'), {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Timestamp'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Water (Liters)'
+                    },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

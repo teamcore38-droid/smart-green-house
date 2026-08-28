@@ -1,0 +1,80 @@
+{
+    "dissertation_title": "IoT-Based Smart Greenhouse Decision Support System for Tomato Cultivation with Simulation Dashboard",
+    "author": "Fathima Hasna Mohammed Nishpar",
+    "structure_mapping": {
+        "preliminary_pages": {
+            "cover_page": {
+                "university": "SLIIT",
+                "degree": "MSc in IT & Strategic Innovation",
+                "year": "2026"
+            },
+            "declaration": {
+                "student_id": "K2635977",
+                "signature": "Verified"
+            },
+            "abstract": {
+                "sequence": "background -> problem -> method -> findings -> contribution"
+            }
+        },
+        "chapter_1_introduction": {
+            "1.1_background": "Introduction to smart agroecology, microclimate dynamics, and tomato cultivation requirements.",
+            "1.1.1_current_approaches_and_limitations": "Manual supervision vs hardware-bound IoT setups.",
+            "1.1.2_significance": "Water conservation, yield optimization, risk-free simulation.",
+            "1.2_motivation": "Hardware cost barriers and risk of crop damage during control testing.",
+            "1.3_research_problem": "Lack of hardware-independent dual-mode greenhouse decision support systems.",
+            "1.4_aim_and_objectives": {
+                "aim": "Design, develop, and evaluate a dual-mode IoT-ML greenhouse DSS.",
+                "objectives": 5
+            },
+            "1.5_research_contribution": "Academic (Dual-mode DSR model) and Practical (31.4% water reduction)."
+        },
+        "chapter_2_literature_review": {
+            "2.1_intro": "Review of agricultural IoT and ML decision support systems.",
+            "2.2_topic_area_1": "IoT environmental sensors and microclimate dynamics.",
+            "2.3_topic_area_2": "Machine Learning in precision agriculture and irrigation scheduling.",
+            "2.4_existing_applications": [
+                "IoT Precision Irrigation",
+                "Smart Tomato Cultivation",
+                "LoRaWAN Systems"
+            ],
+            "2.5_challenges": "High hardware costs, risk of crop damage, lack of simulation capability.",
+            "2.6_research_gap": "Comparison Table 1: Existing Systems vs Proposed System."
+        },
+        "chapter_3_methodology": {
+            "3.1_research_approach": "Design Science Research (DSR) + Agile Scrum framework.",
+            "3.2_tools_and_technologies": {
+                "backend": "Flask Python (app.py, models.py)",
+                "database": "SQLite (plantation.db) & NoSQL Realtime Store",
+                "ml": "Scikit-Learn, Joblib, Pandas, NumPy",
+                "frontend": "Bootstrap 5, FontAwesome, Chart.js",
+                "firmware": "Arduino C++ (iot_irrigation_system.ino.ino)"
+            },
+            "3.3_data_sources": {
+                "primary": "survey_and_usability_data.csv (35 participants, SUS Benchmark)",
+                "secondary": "irrigation_dataset.csv, fertilizer_dataset.csv, harvest_dataset.csv"
+            },
+            "3.3.1_sampling": "35 participants (Farmers, Agronomists, Researchers, Admins)"
+        },
+        "chapter_4_data_analysis_and_findings": {
+            "4.1_survey_findings": "Demographics, SUS Score (mean 90.6/100), 5-star user satisfaction.",
+            "4.2_ml_model_evaluation": "ml_model_evaluation_metrics.json (Irrigation R^2=0.941, MAE=0.08L; Fertilizer 92.4% accuracy; Harvest MAE=2.1 days).",
+            "4.3_comparative_analysis": "31.4% water savings vs traditional fixed irrigation schedules."
+        },
+        "chapter_5_proposed_solution": {
+            "5.1_intro": "System Architecture and Implementation",
+            "5.3_proposed_framework": "Hybrid Realtime & Background Physical Simulation Engine",
+            "5.4_implementation_plan": "Modular UI panels (Dashboard, Irrigation, Fertilizer, Harvest, History, Simulation Controls)",
+            "5.6_risks_and_mitigation": "risk_and_mitigation_matrix.docx (5 key technical risk mitigations)"
+        },
+        "chapter_6_discussion": {
+            "6.1_interpretation": "Implications of multi-factorial environmental telemetry.",
+            "6.2_link_with_studies": "Validation against prior literature.",
+            "6.4_ethical_and_legal": "ethical_and_legal_compliance.docx (GDPR, Open-Source Licenses, UN SDG 6)"
+        },
+        "chapter_7_conclusion": {
+            "7.1_summary": "Achievement of research goals.",
+            "7.2_achievement_of_objectives": "Table of 5 objectives vs evidence of completion.",
+            "7.4_future_recommendations": "Soil pH/nutrient sensors, deep learning, mobile app extensions."
+        }
+    }
+}

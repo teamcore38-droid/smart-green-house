@@ -1,0 +1,501 @@
+Timestamp,Temperature (°C),Humidity (%),Area planted (ha),Fertilizer Type,Soil type,Growth stage,Fertilizer Quantity (kg/ha),Application Timing (weeks)
+2024-10-01,35.6,40.8,4.1,Urea,Silty,Vegetative,71.94,1
+2024-10-01,22.3,67.9,1.41,Organic Compost,Sandy,Fruiting,38.58,4
+2024-10-01,22.4,71.4,1.64,Urea,Loamy,Germination,11.74,4
+2024-10-01,19.0,40.4,1.02,DAP,Silty,Flowering,26.6,1
+2024-10-01,34.5,50.3,4.53,Urea,loamy,Fruiting,129.59,1
+2024-10-01,23.0,64.4,3.36,NPK 15-15-15,Sandy,Germination,27.46,5
+2024-10-01,32.8,76.9,4.66,Organic Compost,Clay,Harvesting,40.88,4
+2024-10-01,27.7,57.3,3.75,Urea,Loamy,Harvesting,35.72,3
+2024-10-02,25.9,77.7,1.83,Potash,loamy,Fruiting,56.02,3
+2024-10-02,22.9,84.7,2.55,Organic Compost,loamy,Fruiting,73.53,5
+2024-10-02,19.5,67.8,4.03,Urea,Loamy,Germination,28.12,4
+2024-10-02,29.4,73.3,1.72,Urea,Loamy,Germination,15.54,4
+2024-10-02,22.9,46.0,1.1,DAP,loamy,Harvesting,10.47,1
+2024-10-02,24.4,44.2,3.07,Organic Compost,Silty,Germination,21.36,4
+2024-10-02,31.0,65.2,4.97,NPK 15-15-15,loamy,Harvesting,43.25,4
+2024-10-02,22.8,52.1,0.9,NPK 15-15-15,Silty,Flowering,22.71,4
+2024-10-03,24.5,82.5,3.66,DAP,loamy,Harvesting,31.61,1
+2024-10-03,18.1,57.8,4.24,DAP,Sandy,Fruiting,121.62,5
+2024-10-03,23.8,82.6,1.16,Organic Compost,Clay,Fruiting,36.72,3
+2024-10-03,29.4,83.5,3.95,Organic Compost,Silty,Flowering,101.94,4
+2024-10-03,34.8,49.0,4.99,NPK 15-15-15,loamy,Germination,39.15,4
+2024-10-03,21.8,75.9,4.19,Urea,Silty,Fruiting,119.01,3
+2024-10-03,29.9,72.2,3.99,Urea,Silty,Harvesting,36.29,4
+2024-10-03,34.6,79.1,2.21,Urea,Sandy,Harvesting,20.95,1
+2024-10-04,22.5,69.9,1.0,Potash,Loamy,Harvesting,12.4,4
+2024-10-04,24.0,75.8,0.71,Urea,Sandy,Vegetative,13.34,5
+2024-10-04,30.4,49.9,2.0,DAP,loamy,Harvesting,16.4,1
+2024-10-04,23.3,81.4,0.61,Urea,Clay,Flowering,14.74,4
+2024-10-04,27.4,55.7,0.67,Urea,Silty,Flowering,14.79,1
+2024-10-04,20.1,78.2,3.31,Urea,Clay,Vegetative,60.18,5
+2024-10-04,28.1,83.1,1.31,DAP,Clay,Vegetative,24.92,4
+2024-10-04,31.3,79.7,2.36,DAP,Silty,Germination,18.72,2
+2024-10-05,30.7,75.8,2.97,Potash,Clay,Flowering,74.3,4
+2024-10-05,30.1,62.0,4.84,Organic Compost,loamy,Fruiting,140.56,5
+2024-10-05,24.3,60.6,1.03,Urea,Sandy,Harvesting,10.31,2
+2024-10-05,22.3,45.3,1.99,NPK 15-15-15,loamy,Fruiting,57.32,2
+2024-10-05,25.6,61.9,2.78,Urea,Clay,Harvesting,23.52,3
+2024-10-05,23.7,60.3,0.46,Organic Compost,Loamy,Fruiting,11.57,4
+2024-10-05,27.1,62.3,3.49,DAP,Silty,Fruiting,99.02,5
+2024-10-05,31.7,53.1,1.52,Potash,Sandy,Vegetative,29.54,5
+2024-10-06,31.8,64.7,0.74,Urea,Sandy,Harvesting,9.1,3
+2024-10-06,31.6,74.2,2.32,NPK 15-15-15,Silty,Germination,18.62,2
+2024-10-06,36.0,60.2,1.87,Urea,Silty,Germination,15.62,2
+2024-10-06,31.3,71.0,4.33,Potash,Silty,Vegetative,79.14,2
+2024-10-06,32.5,65.7,2.75,Potash,loamy,Vegetative,48.94,3
+2024-10-06,22.8,78.6,4.93,Urea,Loamy,Vegetative,92.02,4
+2024-10-06,35.9,79.0,0.81,NPK 15-15-15,Clay,Vegetative,16.35,2
+2024-10-06,30.2,62.0,2.97,Organic Compost,Silty,Fruiting,85.75,1
+2024-10-07,31.5,71.3,4.41,DAP,Silty,Flowering,112.12,1
+2024-10-07,26.3,69.9,1.92,Urea,loamy,Fruiting,54.1,4
+2024-10-07,26.9,54.5,1.56,Potash,loamy,Vegetative,28.98,4
+2024-10-07,34.1,74.3,0.42,Urea,Silty,Germination,1.27,2
+2024-10-07,18.0,83.1,1.17,Urea,Clay,Flowering,27.94,3
+2024-10-07,24.5,43.7,3.39,Urea,Clay,Germination,24.29,3
+2024-10-07,31.6,59.3,0.64,Urea,Loamy,Vegetative,11.88,2
+2024-10-07,27.3,60.0,0.24,Organic Compost,Loamy,Fruiting,8.58,4
+2024-10-08,24.9,72.9,0.69,Organic Compost,Sandy,Flowering,15.71,2
+2024-10-08,30.2,43.1,2.9,Potash,Clay,Fruiting,83.13,2
+2024-10-08,20.7,58.5,3.5,NPK 15-15-15,Loamy,Germination,23.54,1
+2024-10-08,24.9,83.3,1.71,NPK 15-15-15,Clay,Flowering,44.46,2
+2024-10-08,28.8,67.3,3.94,Urea,Loamy,Flowering,98.02,5
+2024-10-08,31.5,53.3,0.46,NPK 15-15-15,Silty,Fruiting,11.42,4
+2024-10-08,19.3,80.0,0.26,Organic Compost,Sandy,Vegetative,4.5,5
+2024-10-08,27.8,47.8,2.46,Urea,Loamy,Harvesting,20.05,3
+2024-10-09,34.6,82.7,2.11,Organic Compost,loamy,Fruiting,60.81,4
+2024-10-09,27.7,67.7,1.53,Organic Compost,Loamy,Harvesting,16.8,2
+2024-10-09,25.0,68.5,4.21,Urea,Loamy,Flowering,107.78,2
+2024-10-09,19.6,59.6,2.38,Potash,Loamy,Flowering,61.47,2
+2024-10-09,30.7,71.6,0.99,Organic Compost,loamy,Harvesting,11.11,3
+2024-10-09,20.3,75.2,1.49,Urea,Loamy,Flowering,39.89,3
+2024-10-09,22.7,83.9,3.21,DAP,Silty,Harvesting,28.55,4
+2024-10-09,21.0,47.1,3.91,Potash,Loamy,Vegetative,72.32,1
+2024-10-10,33.5,51.0,2.46,DAP,Clay,Vegetative,47.37,1
+2024-10-10,34.5,73.3,2.21,Organic Compost,Clay,Fruiting,66.64,3
+2024-10-10,19.4,56.8,2.61,Urea,Clay,Vegetative,49.31,1
+2024-10-10,19.2,60.9,1.56,Organic Compost,Sandy,Germination,12.05,1
+2024-10-10,23.2,75.3,3.75,NPK 15-15-15,Silty,Flowering,95.55,4
+2024-10-10,32.0,73.0,2.82,NPK 15-15-15,Clay,Germination,23.4,1
+2024-10-10,24.2,77.8,4.41,Organic Compost,Loamy,Fruiting,129.6,3
+2024-10-10,27.5,50.7,2.56,Urea,Clay,Flowering,62.57,2
+2024-10-11,27.4,71.5,1.99,Urea,Loamy,Harvesting,15.98,2
+2024-10-11,25.1,66.6,0.5,Urea,Clay,Vegetative,8.25,3
+2024-10-11,25.1,77.4,1.77,DAP,Sandy,Vegetative,29.81,2
+2024-10-11,31.9,44.9,0.71,DAP,Silty,Flowering,17.83,5
+2024-10-11,31.9,60.3,2.42,Urea,Loamy,Vegetative,45.91,3
+2024-10-11,30.5,41.8,4.21,Organic Compost,Clay,Germination,32.08,3
+2024-10-11,18.9,53.4,4.14,NPK 15-15-15,Loamy,Fruiting,121.86,5
+2024-10-11,22.5,60.8,4.06,NPK 15-15-15,Loamy,Germination,27.1,2
+2024-10-12,32.8,56.8,3.23,Urea,Loamy,Harvesting,30.09,1
+2024-10-12,19.2,80.6,2.33,NPK 15-15-15,Loamy,Flowering,56.95,4
+2024-10-12,34.6,59.5,3.68,DAP,Loamy,Fruiting,107.58,2
+2024-10-12,34.3,52.4,2.34,NPK 15-15-15,Loamy,Harvesting,22.28,2
+2024-10-12,27.0,79.7,2.5,Urea,Sandy,Fruiting,70.32,2
+2024-10-12,32.3,51.2,4.97,Potash,Loamy,Fruiting,145.33,3
+2024-10-12,32.1,55.5,2.92,Organic Compost,Silty,Flowering,72.16,3
+2024-10-12,18.5,76.5,1.55,DAP,loamy,Flowering,41.16,2
+2024-10-13,19.8,69.6,1.48,Urea,Loamy,Vegetative,27.59,4
+2024-10-13,33.1,78.0,1.05,Potash,Sandy,Flowering,29.44,1
+2024-10-13,24.3,65.5,0.88,NPK 15-15-15,Silty,Harvesting,7.27,4
+2024-10-13,19.0,67.1,0.3,DAP,Loamy,Flowering,10.57,2
+2024-10-13,24.1,48.0,4.05,Organic Compost,Loamy,Germination,27.55,2
+2024-10-13,33.2,78.7,4.81,Organic Compost,Silty,Harvesting,41.4,3
+2024-10-13,35.6,73.0,2.3,Urea,Silty,Flowering,56.51,5
+2024-10-13,34.7,75.4,1.27,Potash,Clay,Fruiting,35.92,3
+2024-10-14,31.1,82.7,4.75,DAP,loamy,Germination,32.79,3
+2024-10-14,35.4,49.9,2.91,DAP,Clay,Flowering,75.3,2
+2024-10-14,23.8,68.6,4.82,Urea,Sandy,Fruiting,136.38,2
+2024-10-14,19.2,51.5,0.72,Urea,Loamy,Fruiting,20.87,4
+2024-10-14,33.9,62.2,2.02,Potash,Silty,Germination,17.02,5
+2024-10-14,30.4,47.3,0.55,Urea,Sandy,Germination,3.37,1
+2024-10-14,21.1,56.9,3.71,Potash,Loamy,Flowering,94.56,5
+2024-10-14,30.7,59.4,3.34,Potash,Silty,Vegetative,57.94,3
+2024-10-15,21.4,71.4,3.67,Urea,loamy,Flowering,93.95,3
+2024-10-15,18.9,65.7,4.23,NPK 15-15-15,Loamy,Flowering,104.12,1
+2024-10-15,29.9,67.0,1.16,Urea,Clay,Vegetative,22.21,1
+2024-10-15,20.1,75.3,2.46,Urea,Sandy,Germination,19.06,4
+2024-10-15,33.9,56.6,2.34,Organic Compost,Silty,Fruiting,66.47,3
+2024-10-15,20.7,71.3,0.66,Urea,Sandy,Harvesting,5.92,5
+2024-10-15,19.1,57.4,2.71,Potash,Silty,Harvesting,27.18,4
+2024-10-15,25.1,78.4,0.37,Potash,loamy,Harvesting,4.9,5
+2024-10-16,35.1,60.2,4.76,NPK 15-15-15,Clay,Vegetative,83.94,4
+2024-10-16,30.3,49.1,4.15,NPK 15-15-15,loamy,Flowering,104.0,1
+2024-10-16,28.0,64.8,4.31,Potash,Silty,Germination,33.25,5
+2024-10-16,32.1,45.1,0.92,Potash,loamy,Harvesting,10.33,1
+2024-10-16,28.1,44.5,1.57,Potash,Sandy,Fruiting,44.3,4
+2024-10-16,26.5,47.7,2.13,Potash,loamy,Fruiting,59.08,3
+2024-10-16,18.9,61.4,1.49,Organic Compost,Loamy,Flowering,39.95,3
+2024-10-16,33.2,78.6,3.49,NPK 15-15-15,Clay,Flowering,91.29,4
+2024-10-17,23.8,72.8,3.1,Urea,Clay,Fruiting,88.05,4
+2024-10-17,31.7,79.0,4.14,Potash,Clay,Germination,29.17,5
+2024-10-17,32.0,63.6,2.93,NPK 15-15-15,Clay,Vegetative,55.26,2
+2024-10-17,18.9,56.2,1.16,Organic Compost,Silty,Harvesting,10.32,1
+2024-10-17,22.4,62.0,2.34,DAP,loamy,Harvesting,20.66,2
+2024-10-17,22.7,77.4,0.63,Urea,Silty,Germination,3.01,5
+2024-10-17,21.9,50.0,1.28,NPK 15-15-15,Sandy,Fruiting,37.44,1
+2024-10-17,20.4,47.8,4.04,NPK 15-15-15,Sandy,Harvesting,38.69,3
+2024-10-18,30.8,52.4,4.5,Organic Compost,Silty,Flowering,112.21,3
+2024-10-18,32.8,57.9,0.69,Potash,Sandy,Harvesting,7.59,5
+2024-10-18,30.3,61.7,1.81,Organic Compost,Sandy,Flowering,44.68,3
+2024-10-18,27.3,50.8,0.47,Potash,Silty,Flowering,13.43,1
+2024-10-18,36.0,51.7,2.21,DAP,Loamy,Harvesting,21.64,5
+2024-10-18,24.2,72.1,3.49,Urea,Silty,Flowering,88.49,2
+2024-10-18,33.8,48.2,0.67,NPK 15-15-15,Sandy,Harvesting,8.11,2
+2024-10-18,34.2,69.4,1.27,NPK 15-15-15,Sandy,Fruiting,38.8,3
+2024-10-19,28.5,60.9,0.77,Urea,loamy,Harvesting,10.1,1
+2024-10-19,21.5,45.4,3.47,Potash,Sandy,Fruiting,97.76,2
+2024-10-19,21.6,58.4,2.93,DAP,Clay,Flowering,76.51,2
+2024-10-19,26.8,68.4,1.05,Urea,Loamy,Germination,7.77,2
+2024-10-19,21.0,74.4,2.55,Urea,Clay,Harvesting,23.05,4
+2024-10-19,35.4,57.2,0.38,NPK 15-15-15,Sandy,Germination,5.59,5
+2024-10-19,30.2,68.2,1.39,Urea,Sandy,Flowering,33.3,4
+2024-10-19,23.5,42.9,0.42,Organic Compost,Silty,Harvesting,4.86,3
+2024-10-20,30.4,,4.98,DAP,Sandy,Vegetative,88.13,4
+2024-10-20,22.0,84.3,1.21,Urea,loamy,Harvesting,9.4,3
+2024-10-20,32.3,56.9,3.27,Potash,loamy,Germination,24.61,1
+2024-10-20,29.8,40.9,3.51,DAP,Silty,Fruiting,99.33,3
+2024-10-20,20.8,71.3,3.23,Organic Compost,Silty,Germination,24.73,3
+2024-10-20,30.6,58.8,4.51,Potash,loamy,Germination,31.67,1
+2024-10-20,29.0,75.0,4.19,NPK 15-15-15,Sandy,Fruiting,119.94,1
+2024-10-20,34.4,71.0,2.51,NPK 15-15-15,Loamy,Germination,19.6,1
+2024-10-21,30.0,46.7,0.63,Potash,Loamy,Germination,7.46,2
+2024-10-21,35.6,51.9,0.44,NPK 15-15-15,Loamy,Flowering,10.75,3
+2024-10-21,20.1,78.3,4.47,Urea,Clay,Vegetative,79.93,4
+2024-10-21,22.8,73.0,1.99,Organic Compost,Clay,Germination,14.23,4
+2024-10-21,24.9,78.3,4.04,Urea,Clay,Germination,27.38,1
+2024-10-21,33.2,44.7,4.57,DAP,loamy,Fruiting,130.2,4
+2024-10-21,29.0,78.8,4.42,Urea,Clay,Fruiting,130.32,1
+2024-10-21,25.9,42.9,3.34,Urea,loamy,Harvesting,31.9,2
+2024-10-22,30.1,55.2,2.71,Urea,loamy,Germination,19.61,2
+2024-10-22,29.9,68.9,0.91,Potash,loamy,Germination,4.12,2
+2024-10-22,26.4,62.3,0.99,DAP,Sandy,Vegetative,17.31,3
+2024-10-22,22.0,68.9,2.14,NPK 15-15-15,Loamy,Fruiting,61.8,5
+2024-10-22,33.4,60.1,0.77,DAP,Loamy,Germination,5.46,1
+2024-10-22,18.0,44.1,3.1,Potash,Sandy,Harvesting,28.77,4
+2024-10-22,24.5,42.4,1.27,DAP,Sandy,Harvesting,13.53,5
+2024-10-22,29.8,72.2,0.75,Urea,Clay,Germination,4.95,3
+2024-10-23,24.7,44.8,4.51,DAP,Clay,Fruiting,128.03,5
+2024-10-23,20.2,78.3,1.23,NPK 15-15-15,Sandy,Germination,10.9,1
+2024-10-23,33.1,66.5,3.91,DAP,Silty,Harvesting,38.43,2
+2024-10-23,18.1,73.1,2.86,DAP,loamy,Fruiting,85.41,2
+2024-10-23,21.1,76.7,0.7,Urea,loamy,Harvesting,9.1,5
+2024-10-23,25.5,67.4,3.52,NPK 15-15-15,Sandy,Fruiting,104.66,3
+2024-10-23,20.4,58.6,3.56,Urea,loamy,Flowering,92.27,5
+2024-10-23,30.8,82.1,3.24,NPK 15-15-15,Clay,Harvesting,30.95,3
+2024-10-24,20.4,72.0,4.88,NPK 15-15-15,loamy,Harvesting,45.59,3
+2024-10-24,31.7,65.3,3.0,Urea,Silty,Harvesting,26.22,4
+2024-10-24,27.4,41.1,0.9,Urea,Loamy,Vegetative,15.3,2
+2024-10-24,30.3,46.6,0.5,Organic Compost,Clay,Harvesting,2.19,4
+2024-10-24,33.6,73.3,4.35,Urea,loamy,Fruiting,124.21,3
+2024-10-24,18.8,57.2,2.2,Urea,Sandy,Harvesting,17.62,3
+2024-10-24,33.6,78.7,2.33,NPK 15-15-15,Sandy,Harvesting,21.75,5
+2024-10-24,31.0,48.7,2.35,Urea,Loamy,Vegetative,45.57,5
+2024-10-25,18.7,52.6,1.47,NPK 15-15-15,loamy,Flowering,34.58,4
+2024-10-25,20.8,46.9,1.75,Urea,loamy,Flowering,44.54,5
+2024-10-25,19.3,71.8,2.72,NPK 15-15-15,loamy,Germination,21.8,2
+2024-10-25,27.7,44.1,1.26,NPK 15-15-15,Sandy,Flowering,31.42,2
+2024-10-25,29.1,61.4,2.89,Urea,Loamy,Germination,22.32,4
+2024-10-25,29.6,81.3,1.37,Urea,Sandy,Fruiting,42.45,1
+2024-10-25,27.7,52.7,4.57,Organic Compost,loamy,Harvesting,41.3,1
+2024-10-25,29.7,54.4,0.6,Urea,Clay,Harvesting,6.1,1
+2024-10-26,29.3,49.6,3.49,Urea,Clay,Harvesting,33.88,4
+2024-10-26,34.9,73.6,0.94,DAP,Sandy,Germination,4.79,1
+2024-10-26,22.5,43.2,4.14,Organic Compost,Silty,Fruiting,119.44,4
+2024-10-26,18.3,70.3,2.77,Urea,loamy,Germination,21.98,5
+2024-10-26,33.3,56.1,2.61,Organic Compost,Sandy,Harvesting,21.51,4
+2024-10-26,32.8,41.4,0.95,NPK 15-15-15,Clay,Fruiting,29.64,5
+2024-10-26,29.4,53.4,4.46,Urea,Sandy,Germination,32.93,5
+2024-10-26,18.8,65.8,2.09,Potash,Loamy,Flowering,51.43,3
+2024-10-27,34.3,78.3,0.88,NPK 15-15-15,Clay,Harvesting,10.43,2
+2024-10-27,30.1,65.5,0.46,Potash,Silty,Harvesting,2.08,1
+2024-10-27,21.6,66.1,4.77,Organic Compost,Clay,Vegetative,83.96,5
+2024-10-27,21.5,61.9,1.78,Urea,Sandy,Harvesting,14.43,5
+2024-10-27,23.7,59.3,0.22,NPK 15-15-15,Clay,Fruiting,5.5,3
+2024-10-27,31.2,79.5,2.42,Organic Compost,Sandy,Fruiting,70.51,2
+2024-10-27,19.5,52.6,4.17,Potash,Clay,Flowering,106.99,1
+2024-10-27,34.1,78.2,3.23,Potash,loamy,Fruiting,95.14,2
+2024-10-28,27.9,64.5,4.99,DAP,Clay,Flowering,125.6,5
+2024-10-28,23.2,60.9,2.65,DAP,Sandy,Harvesting,21.41,2
+2024-10-28,32.5,67.6,1.0,Potash,Clay,Fruiting,27.26,5
+2024-10-28,29.9,83.5,3.73,DAP,Sandy,Germination,25.67,4
+2024-10-28,22.8,50.5,3.41,Potash,Sandy,Fruiting,98.53,4
+2024-10-28,18.7,69.2,0.7,Potash,Sandy,Flowering,18.61,5
+2024-10-28,29.8,56.4,3.34,Urea,loamy,Flowering,83.93,2
+2024-10-28,24.4,79.0,2.54,DAP,loamy,Germination,18.8,2
+2024-10-29,22.1,63.2,1.55,NPK 15-15-15,Clay,Vegetative,27.57,1
+2024-10-29,25.5,54.9,0.74,Urea,Silty,Fruiting,20.08,2
+2024-10-29,25.4,51.0,0.81,Potash,Clay,Vegetative,15.86,1
+2024-10-29,20.6,47.5,4.63,Potash,Silty,Harvesting,44.99,1
+2024-10-29,31.1,77.0,4.75,NPK 15-15-15,Silty,Harvesting,46.21,4
+2024-10-29,32.9,67.0,4.01,NPK 15-15-15,loamy,Harvesting,35.18,3
+2024-10-29,28.7,43.1,2.02,NPK 15-15-15,Loamy,Germination,13.26,5
+2024-10-29,32.9,67.2,1.05,Potash,loamy,Germination,10.33,5
+2024-10-30,20.1,61.7,0.83,Potash,loamy,Germination,8.86,4
+2024-10-30,24.7,42.0,2.74,NPK 15-15-15,Silty,Fruiting,78.52,5
+2024-10-30,20.4,61.5,1.32,Urea,Sandy,Harvesting,14.64,4
+2024-10-30,18.1,73.5,0.23,Potash,Loamy,Harvesting,1.0,2
+2024-10-30,23.7,56.3,0.94,Urea,loamy,Flowering,22.76,5
+2024-10-30,24.6,52.4,3.47,NPK 15-15-15,Silty,Harvesting,33.43,4
+2024-10-30,28.1,61.8,4.94,Potash,Sandy,Fruiting,144.19,1
+2024-10-30,26.0,71.5,0.98,NPK 15-15-15,loamy,Fruiting,30.44,5
+2024-10-31,30.3,42.3,2.07,Urea,Loamy,Germination,17.34,4
+2024-10-31,25.8,42.9,1.26,Urea,loamy,Germination,10.92,4
+2024-10-31,27.4,72.0,3.07,NPK 15-15-15,Silty,Fruiting,85.98,5
+2024-10-31,18.6,67.0,2.68,NPK 15-15-15,loamy,Vegetative,49.78,3
+2024-10-31,18.0,47.1,4.98,DAP,Sandy,Fruiting,143.36,2
+2024-10-31,31.3,43.1,0.63,Organic Compost,loamy,Harvesting,5.26,3
+2024-10-31,35.3,60.5,2.14,Urea,Sandy,Vegetative,38.46,1
+2024-10-31,27.1,55.3,0.76,Potash,Sandy,Harvesting,9.22,5
+2024-11-01,26.0,57.0,2.52,NPK 15-15-15,Sandy,Fruiting,74.17,5
+2024-11-01,26.7,51.6,2.04,NPK 15-15-15,Clay,Flowering,51.38,3
+2024-11-01,18.2,77.4,1.39,Urea,Silty,Flowering,32.98,2
+2024-11-01,24.4,80.2,1.49,Urea,Clay,Fruiting,44.83,2
+2024-11-01,33.7,49.3,1.17,NPK 15-15-15,loamy,Flowering,27.92,1
+2024-11-01,19.4,83.0,2.56,Urea,loamy,Germination,21.02,3
+2024-11-01,26.9,84.3,4.51,Organic Compost,Silty,Vegetative,84.59,5
+2024-11-01,22.0,65.9,0.46,DAP,Silty,Harvesting,1.84,3
+2024-11-02,30.4,,4.89,Urea,loamy,Fruiting,140.23,1
+2024-11-02,21.8,66.1,1.76,Potash,Sandy,Vegetative,32.47,2
+2024-11-02,35.3,55.4,1.08,DAP,Clay,Fruiting,32.81,3
+2024-11-02,25.2,60.3,2.94,Potash,Clay,Germination,22.99,2
+2024-11-02,33.4,48.8,4.04,Urea,Clay,Fruiting,118.69,2
+2024-11-02,20.4,80.2,3.23,Potash,Sandy,Fruiting,92.32,5
+2024-11-02,18.9,44.5,0.98,NPK 15-15-15,Sandy,Fruiting,30.76,1
+2024-11-02,24.0,56.2,2.89,Organic Compost,Sandy,Germination,20.78,3
+2024-11-03,35.3,49.0,2.96,Urea,loamy,Vegetative,56.66,3
+2024-11-03,30.1,61.9,3.74,Urea,Silty,Harvesting,32.88,2
+2024-11-03,29.5,81.8,2.22,Potash,loamy,Fruiting,66.53,1
+2024-11-03,24.2,54.1,3.33,Urea,Sandy,Harvesting,31.34,3
+2024-11-03,32.1,82.2,3.79,Potash,Silty,Fruiting,107.66,1
+2024-11-03,22.2,51.3,3.77,Urea,Loamy,Vegetative,66.36,1
+2024-11-03,34.9,61.3,0.46,DAP,loamy,Germination,1.44,5
+2024-11-03,29.8,79.8,1.68,NPK 15-15-15,Sandy,Fruiting,49.64,2
+2024-11-04,21.1,41.6,1.91,Organic Compost,Silty,Fruiting,58.36,5
+2024-11-04,27.9,46.1,4.75,Potash,Clay,Harvesting,43.84,5
+2024-11-04,29.5,64.0,4.56,DAP,loamy,Vegetative,84.41,4
+2024-11-04,25.4,,0.25,Potash,Clay,Flowering,5.52,5
+2024-11-04,34.6,82.6,2.49,Urea,Silty,Flowering,63.83,1
+2024-11-04,21.4,79.7,2.3,NPK 15-15-15,Clay,Fruiting,68.71,2
+2024-11-04,25.6,50.8,3.87,Potash,Sandy,Flowering,98.91,5
+2024-11-04,25.4,78.4,1.08,Organic Compost,Loamy,Fruiting,32.31,3
+2024-11-05,26.9,54.4,0.93,Potash,Loamy,Vegetative,20.07,3
+2024-11-05,30.9,72.7,1.32,NPK 15-15-15,Loamy,Fruiting,36.82,4
+2024-11-05,32.4,84.9,2.43,Urea,Sandy,Germination,20.06,2
+2024-11-05,32.0,43.2,2.46,NPK 15-15-15,Sandy,Fruiting,73.32,1
+2024-11-05,30.9,57.3,4.88,NPK 15-15-15,Loamy,Vegetative,88.11,1
+2024-11-05,35.7,61.3,3.47,Organic Compost,Sandy,Vegetative,63.73,1
+2024-11-05,27.9,45.5,2.51,Organic Compost,Clay,Flowering,66.08,2
+2024-11-05,22.2,,0.27,Organic Compost,loamy,Germination,1.82,2
+2024-11-06,18.8,75.3,2.48,Potash,Clay,Flowering,64.62,2
+2024-11-06,19.6,67.8,4.67,Urea,Loamy,Germination,33.26,2
+2024-11-06,32.2,45.7,1.32,Potash,Sandy,Fruiting,39.92,1
+2024-11-06,24.4,46.1,4.51,DAP,Silty,Harvesting,39.86,4
+2024-11-06,21.4,55.6,3.72,Organic Compost,loamy,Harvesting,31.94,5
+2024-11-06,23.3,51.9,1.96,Urea,loamy,Fruiting,58.35,1
+2024-11-06,24.6,67.9,1.74,Urea,loamy,Fruiting,48.75,4
+2024-11-06,20.8,52.7,2.17,Organic Compost,Loamy,Germination,16.26,1
+2024-11-07,34.9,48.0,0.35,Urea,Silty,Vegetative,4.39,5
+2024-11-07,25.0,62.0,3.2,Potash,Sandy,Germination,22.74,5
+2024-11-07,18.2,81.4,3.35,Urea,Silty,Germination,23.79,4
+2024-11-07,32.3,42.6,3.16,Potash,Loamy,Germination,25.26,1
+2024-11-07,35.3,44.4,3.68,Potash,Silty,Vegetative,64.9,2
+2024-11-07,35.1,65.1,2.88,Urea,Loamy,Harvesting,25.57,4
+2024-11-07,25.7,44.7,4.0,Potash,Silty,Harvesting,35.53,2
+2024-11-07,28.8,82.0,4.53,Potash,Sandy,Flowering,114.13,4
+2024-11-08,23.8,50.8,2.82,DAP,loamy,Flowering,70.72,4
+2024-11-08,25.1,,4.92,Potash,Loamy,Harvesting,42.59,3
+2024-11-08,35.7,49.7,1.71,Urea,Sandy,Harvesting,15.96,5
+2024-11-08,20.8,41.7,1.91,NPK 15-15-15,Sandy,Flowering,50.97,2
+2024-11-08,32.6,44.1,2.12,NPK 15-15-15,Loamy,Flowering,55.68,2
+2024-11-08,34.2,71.6,4.13,Urea,loamy,Flowering,101.8,5
+2024-11-08,32.0,81.5,1.81,DAP,Silty,Germination,15.75,2
+2024-11-08,33.3,81.8,3.24,Urea,Silty,Germination,22.66,1
+2024-11-09,28.2,54.7,3.55,NPK 15-15-15,Loamy,Fruiting,105.57,5
+2024-11-09,19.6,59.4,3.97,NPK 15-15-15,Clay,Flowering,98.04,5
+2024-11-09,27.9,51.8,2.11,DAP,Clay,Vegetative,38.37,2
+2024-11-09,29.7,48.8,3.16,Urea,loamy,Vegetative,55.83,3
+2024-11-09,23.8,81.6,0.63,Urea,Silty,Fruiting,17.84,2
+2024-11-09,28.7,41.1,1.66,Organic Compost,loamy,Fruiting,49.05,4
+2024-11-09,32.7,49.0,1.99,Urea,Loamy,Germination,16.27,2
+2024-11-09,34.7,79.1,4.14,Urea,Sandy,Germination,29.14,4
+2024-11-10,21.8,64.2,1.18,Potash,Sandy,Harvesting,11.02,2
+2024-11-10,30.0,56.9,4.55,Potash,Loamy,Flowering,113.18,3
+2024-11-10,30.5,52.2,2.43,Urea,Loamy,Fruiting,71.45,3
+2024-11-10,18.3,79.0,3.32,NPK 15-15-15,Silty,Harvesting,33.24,1
+2024-11-10,26.7,66.9,0.62,NPK 15-15-15,loamy,Fruiting,18.72,1
+2024-11-10,34.6,53.7,2.55,Urea,Clay,Germination,17.94,3
+2024-11-10,23.4,84.8,4.9,Organic Compost,Loamy,Flowering,126.25,1
+2024-11-10,35.1,50.2,1.84,DAP,Clay,Germination,15.13,5
+2024-11-11,29.0,68.1,1.29,NPK 15-15-15,loamy,Vegetative,23.28,3
+2024-11-11,23.9,64.4,1.19,NPK 15-15-15,loamy,Harvesting,12.31,2
+2024-11-11,23.6,71.7,2.71,NPK 15-15-15,Silty,Vegetative,50.22,5
+2024-11-11,23.7,65.1,4.75,Urea,Clay,Flowering,122.24,2
+2024-11-11,31.8,79.6,2.19,DAP,Sandy,Fruiting,65.05,3
+2024-11-11,21.4,45.9,0.33,Potash,loamy,Flowering,9.45,5
+2024-11-11,22.2,70.9,1.92,Urea,Silty,Vegetative,35.07,5
+2024-11-11,29.7,48.3,2.06,DAP,Clay,Vegetative,35.74,1
+2024-11-12,35.4,81.6,4.76,NPK 15-15-15,Clay,Vegetative,83.58,4
+2024-11-12,26.8,54.6,2.4,NPK 15-15-15,Silty,Fruiting,71.28,5
+2024-11-12,24.8,54.1,3.14,Urea,loamy,Harvesting,28.98,1
+2024-11-12,26.1,77.2,0.4,NPK 15-15-15,loamy,Harvesting,3.47,1
+2024-11-12,27.3,68.4,0.44,Organic Compost,Silty,Fruiting,15.48,3
+2024-11-12,25.6,67.6,0.46,Potash,Clay,Fruiting,15.73,4
+2024-11-12,27.0,48.1,3.01,Urea,loamy,Vegetative,54.04,3
+2024-11-12,21.2,66.6,3.62,NPK 15-15-15,Silty,Germination,25.06,2
+2024-11-13,20.2,45.1,2.36,Organic Compost,Loamy,Harvesting,22.98,5
+2024-11-13,20.9,64.8,0.41,NPK 15-15-15,Sandy,Harvesting,6.42,2
+2024-11-13,20.6,74.6,0.45,Organic Compost,Sandy,Fruiting,12.19,2
+2024-11-13,20.4,49.1,3.19,Organic Compost,Loamy,Fruiting,92.36,4
+2024-11-13,18.1,79.7,1.34,Potash,Silty,Fruiting,38.55,1
+2024-11-13,18.1,79.7,1.53,Urea,loamy,Vegetative,25.33,2
+2024-11-13,24.3,46.5,0.36,Potash,loamy,Flowering,8.56,1
+2024-11-13,25.5,48.0,3.43,Potash,loamy,Harvesting,33.09,2
+2024-11-14,31.5,56.2,0.37,Organic Compost,Sandy,Flowering,12.21,1
+2024-11-14,33.2,42.9,2.46,Urea,Sandy,Flowering,62.65,5
+2024-11-14,21.8,42.6,2.94,Urea,loamy,Germination,21.57,5
+2024-11-14,35.8,52.9,3.12,Organic Compost,Sandy,Harvesting,29.03,5
+2024-11-14,20.3,65.3,2.69,Urea,Silty,Fruiting,79.82,5
+2024-11-14,23.2,48.7,0.77,DAP,Loamy,Vegetative,16.16,4
+2024-11-14,24.0,65.2,3.26,Urea,Clay,Flowering,81.18,1
+2024-11-14,27.1,54.6,0.23,Urea,Sandy,Flowering,5.67,5
+2024-11-15,18.5,47.9,1.79,Organic Compost,Silty,Fruiting,53.84,2
+2024-11-15,29.3,80.1,2.78,Organic Compost,Silty,Fruiting,83.13,1
+2024-11-15,23.4,72.6,1.71,Potash,Loamy,Vegetative,31.74,3
+2024-11-15,34.0,55.9,4.85,Organic Compost,Loamy,Flowering,125.62,5
+2024-11-15,28.3,57.5,3.06,Organic Compost,Sandy,Germination,21.16,1
+2024-11-15,22.3,60.3,4.76,NPK 15-15-15,loamy,Flowering,118.5,3
+2024-11-15,32.0,81.1,2.33,Urea,Silty,Harvesting,19.39,3
+2024-11-15,31.2,63.6,3.92,NPK 15-15-15,Loamy,Harvesting,36.84,2
+2024-11-16,18.7,57.4,4.35,Urea,Loamy,Flowering,112.71,5
+2024-11-16,24.0,80.0,0.69,Urea,Sandy,Germination,5.93,3
+2024-11-16,21.8,49.0,1.58,Potash,Sandy,Fruiting,47.03,3
+2024-11-16,22.9,40.7,3.19,Potash,Loamy,Vegetative,58.18,5
+2024-11-16,20.5,71.7,1.56,NPK 15-15-15,Clay,Germination,10.6,3
+2024-11-16,18.9,41.3,4.54,Urea,Loamy,Fruiting,128.57,4
+2024-11-16,30.7,80.1,3.22,Urea,Silty,Harvesting,28.61,3
+2024-11-16,30.8,70.2,2.76,DAP,loamy,Vegetative,47.74,4
+2024-11-17,23.6,69.0,3.88,DAP,Clay,Vegetative,68.2,5
+2024-11-17,24.5,48.3,4.6,Organic Compost,Sandy,Fruiting,132.91,1
+2024-11-17,24.3,60.8,1.02,Organic Compost,loamy,Harvesting,7.44,1
+2024-11-17,30.9,44.8,2.87,Urea,Sandy,Harvesting,26.1,5
+2024-11-17,29.2,64.7,4.87,DAP,Loamy,Flowering,121.47,5
+2024-11-17,35.6,65.5,1.84,Urea,Clay,Vegetative,34.6,1
+2024-11-17,30.8,77.7,0.75,Potash,Silty,Flowering,19.73,4
+2024-11-17,35.2,43.1,0.72,Potash,Silty,Flowering,18.61,1
+2024-11-18,32.7,79.9,4.54,Urea,Loamy,Vegetative,83.19,4
+2024-11-18,25.0,66.0,1.14,Urea,Sandy,Flowering,29.65,3
+2024-11-18,34.9,72.3,4.59,Urea,loamy,Germination,34.22,5
+2024-11-18,20.3,53.2,1.97,Potash,Loamy,Germination,15.9,3
+2024-11-18,23.1,41.4,2.27,Potash,Silty,Flowering,58.97,4
+2024-11-18,27.8,69.8,2.48,NPK 15-15-15,loamy,Fruiting,73.98,3
+2024-11-18,20.8,84.9,3.42,NPK 15-15-15,Loamy,Germination,26.01,2
+2024-11-18,26.8,59.7,4.95,Urea,Clay,Fruiting,145.22,5
+2024-11-19,29.2,60.4,2.24,DAP,Silty,Flowering,55.3,4
+2024-11-19,28.4,78.1,1.34,Potash,Sandy,Fruiting,41.65,5
+2024-11-19,35.6,65.6,3.58,Urea,loamy,Fruiting,106.37,1
+2024-11-19,31.2,84.3,4.92,Organic Compost,Silty,Harvesting,42.25,5
+2024-11-19,26.5,73.4,4.81,Urea,loamy,Harvesting,42.66,1
+2024-11-19,27.6,40.5,2.38,DAP,loamy,Flowering,60.0,3
+2024-11-19,18.6,81.5,3.8,Urea,loamy,Flowering,93.63,4
+2024-11-19,28.3,69.5,1.6,Urea,loamy,Germination,10.74,1
+2024-11-20,19.4,75.3,1.41,Potash,Sandy,Flowering,38.18,1
+2024-11-20,28.9,81.0,3.75,Urea,Silty,Flowering,96.85,3
+2024-11-20,22.3,48.1,2.73,Urea,Sandy,Germination,22.96,5
+2024-11-20,20.8,62.3,4.97,DAP,Clay,Fruiting,144.99,2
+2024-11-20,31.2,55.5,3.28,Urea,Loamy,Vegetative,59.32,4
+2024-11-20,31.4,73.9,2.76,DAP,Silty,Fruiting,78.56,5
+2024-11-20,18.2,81.7,2.35,Urea,Sandy,Harvesting,22.75,1
+2024-11-20,27.6,55.9,4.25,Potash,Sandy,Flowering,106.22,1
+2024-11-21,28.5,60.7,3.44,NPK 15-15-15,loamy,Vegetative,62.54,2
+2024-11-21,18.2,40.4,0.53,DAP,Loamy,Harvesting,2.89,4
+2024-11-21,31.1,51.3,0.36,Potash,Loamy,Germination,5.72,2
+2024-11-21,29.5,71.9,0.78,Potash,Clay,Fruiting,23.9,5
+2024-11-21,21.3,45.0,1.08,Organic Compost,Silty,Germination,9.11,3
+2024-11-21,30.5,70.0,3.9,Organic Compost,Clay,Germination,27.24,1
+2024-11-21,24.0,42.7,4.79,Organic Compost,Clay,Fruiting,135.87,2
+2024-11-21,21.2,62.1,0.89,DAP,Clay,Harvesting,9.37,4
+2024-11-22,19.9,43.3,2.94,Organic Compost,Silty,Germination,24.05,2
+2024-11-22,18.0,41.7,2.07,NPK 15-15-15,Sandy,Fruiting,60.56,5
+2024-11-22,31.9,61.5,2.14,Urea,Loamy,Harvesting,18.12,4
+2024-11-22,32.7,61.7,2.92,Organic Compost,Sandy,Flowering,73.49,1
+2024-11-22,33.4,55.3,4.24,Organic Compost,Clay,Vegetative,77.15,4
+2024-11-22,23.4,57.6,0.71,Urea,Sandy,Fruiting,18.46,4
+2024-11-22,20.5,48.7,3.65,Potash,Clay,Fruiting,104.95,5
+2024-11-22,27.0,83.4,4.1,Urea,Loamy,Flowering,101.16,1
+2024-11-23,21.8,69.4,2.71,Urea,loamy,Vegetative,50.73,2
+2024-11-23,18.7,,3.34,DAP,loamy,Germination,23.0,2
+2024-11-23,29.4,80.7,4.14,Urea,Silty,Harvesting,35.78,5
+2024-11-23,32.7,45.1,3.06,Potash,Clay,Germination,24.36,4
+2024-11-23,33.0,73.2,2.13,Urea,loamy,Harvesting,17.49,2
+2024-11-23,28.7,55.1,0.78,NPK 15-15-15,Silty,Vegetative,15.72,5
+2024-11-23,22.4,66.2,0.84,Urea,loamy,Fruiting,26.36,1
+2024-11-23,19.5,40.3,4.65,Urea,loamy,Flowering,117.18,4
+2024-11-24,21.7,68.8,2.71,DAP,Clay,Vegetative,49.94,1
+2024-11-24,30.9,67.5,0.62,Organic Compost,Sandy,Fruiting,15.38,2
+2024-11-24,35.8,84.0,3.17,Potash,loamy,Vegetative,57.35,2
+2024-11-24,21.5,75.8,3.49,DAP,Silty,Vegetative,61.28,1
+2024-11-24,24.6,49.4,1.41,Potash,Silty,Germination,8.28,1
+2024-11-24,21.2,75.3,2.53,Urea,Loamy,Vegetative,47.37,5
+2024-11-24,25.5,73.6,4.51,NPK 15-15-15,Loamy,Flowering,112.52,2
+2024-11-24,33.7,56.9,1.26,DAP,loamy,Fruiting,34.11,4
+2024-11-25,34.7,60.5,2.06,NPK 15-15-15,Silty,Vegetative,38.37,3
+2024-11-25,20.3,71.1,0.49,NPK 15-15-15,Loamy,Fruiting,14.36,2
+2024-11-25,22.0,53.3,0.95,Urea,loamy,Vegetative,18.07,5
+2024-11-25,19.6,,2.55,NPK 15-15-15,loamy,Fruiting,75.96,3
+2024-11-25,25.7,79.3,1.39,DAP,loamy,Vegetative,27.87,5
+2024-11-25,34.4,80.4,2.21,Urea,Loamy,Fruiting,65.55,5
+2024-11-25,27.6,61.6,4.03,Urea,Silty,Fruiting,115.01,5
+2024-11-25,30.5,,1.25,Organic Compost,Sandy,Vegetative,23.89,1
+2024-11-26,30.0,47.3,2.4,Potash,loamy,Germination,20.64,4
+2024-11-26,33.7,58.2,3.99,Organic Compost,Silty,Germination,31.39,1
+2024-11-26,30.4,63.9,1.62,Organic Compost,loamy,Harvesting,15.53,2
+2024-11-26,19.5,79.6,3.73,Urea,loamy,Flowering,96.82,1
+2024-11-26,26.4,41.8,1.96,Urea,loamy,Germination,14.98,2
+2024-11-26,24.0,64.3,3.32,Urea,loamy,Vegetative,61.78,2
+2024-11-26,34.2,62.7,2.23,Urea,Loamy,Flowering,55.77,4
+2024-11-26,32.9,61.2,2.75,Potash,Sandy,Fruiting,80.43,1
+2024-11-27,33.9,43.9,2.08,NPK 15-15-15,Sandy,Germination,13.13,3
+2024-11-27,20.7,46.8,1.18,Urea,Loamy,Flowering,29.74,5
+2024-11-27,26.5,58.9,3.74,Urea,Sandy,Vegetative,65.2,2
+2024-11-27,27.4,55.1,2.98,Urea,Sandy,Fruiting,86.88,5
+2024-11-27,26.0,53.7,0.83,Organic Compost,Clay,Flowering,19.78,3
+2024-11-27,31.9,42.1,1.89,DAP,Clay,Harvesting,20.05,5
+2024-11-27,35.5,77.8,3.53,Urea,Clay,Vegetative,62.47,1
+2024-11-27,28.3,59.8,1.97,NPK 15-15-15,loamy,Germination,15.68,3
+2024-11-28,26.1,83.9,2.76,Urea,Loamy,Fruiting,82.57,2
+2024-11-28,34.7,47.0,4.86,Potash,loamy,Flowering,123.86,3
+2024-11-28,23.2,82.5,4.91,Potash,Clay,Harvesting,46.06,4
+2024-11-28,20.0,61.6,0.39,Urea,loamy,Germination,2.16,4
+2024-11-28,22.0,56.1,1.77,Potash,Clay,Harvesting,16.59,3
+2024-11-28,19.5,78.2,3.45,Urea,loamy,Fruiting,98.03,3
+2024-11-28,27.2,,3.4,DAP,Clay,Fruiting,97.64,3
+2024-11-28,24.2,53.9,2.34,Potash,Loamy,Vegetative,43.99,4
+2024-11-29,25.5,59.9,0.99,Urea,Silty,Fruiting,26.85,5
+2024-11-29,20.6,53.6,4.94,Potash,Sandy,Germination,38.67,5
+2024-11-29,19.6,58.4,4.59,DAP,Clay,Harvesting,41.58,5
+2024-11-29,20.5,48.4,2.03,Potash,Silty,Germination,17.05,3
+2024-11-29,23.5,65.2,2.42,Urea,Loamy,Vegetative,42.64,4
+2024-11-29,30.0,52.9,1.06,Urea,Clay,Germination,5.85,3
+2024-11-29,35.5,67.0,1.94,DAP,loamy,Fruiting,58.58,4
+2024-11-29,32.7,56.8,3.72,Urea,Sandy,Vegetative,67.95,2
+2024-11-30,33.8,46.1,0.98,Organic Compost,Sandy,Fruiting,29.54,3
+2024-11-30,23.2,68.8,0.57,NPK 15-15-15,Clay,Germination,5.2,2
+2024-11-30,33.7,77.2,3.49,Organic Compost,Sandy,Flowering,86.02,5
+2024-11-30,20.6,46.2,1.55,DAP,Silty,Flowering,42.09,2
+2024-11-30,20.8,50.0,1.1,Potash,loamy,Harvesting,12.48,5
+2024-11-30,32.4,58.8,4.6,Urea,Clay,Germination,33.5,3
+2024-11-30,20.5,59.9,4.94,Potash,Sandy,Vegetative,90.68,1
+2024-11-30,20.1,45.8,3.53,Urea,Clay,Flowering,87.21,2
+2024-12-01,25.6,74.3,0.74,Urea,Silty,Fruiting,19.07,1
+2024-12-01,29.9,66.7,2.45,Organic Compost,Loamy,Germination,16.95,1
+2024-12-01,32.1,81.4,1.19,NPK 15-15-15,Clay,Flowering,27.66,2
+2024-12-01,35.0,82.7,1.87,NPK 15-15-15,loamy,Harvesting,15.78,5
+2024-12-01,32.8,,2.74,Urea,Clay,Flowering,67.58,5
+2024-12-01,31.1,81.6,4.62,Urea,Silty,Flowering,118.11,2
+2024-12-01,35.2,48.1,1.9,DAP,Silty,Vegetative,34.79,4
+2024-12-01,35.7,45.6,0.73,NPK 15-15-15,Silty,Flowering,20.12,5
+2024-12-02,19.5,62.2,2.05,DAP,loamy,Flowering,53.28,4
+2024-12-02,25.3,84.3,2.25,Urea,Silty,Flowering,55.28,4
+2024-12-02,25.1,63.5,3.45,Urea,Clay,Fruiting,99.26,5
+2024-12-02,31.3,80.2,1.01,Organic Compost,Clay,Flowering,24.15,4

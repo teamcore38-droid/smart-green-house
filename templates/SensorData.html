@@ -1,0 +1,493 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+
+        <!-- Sensor Cards -->
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-primary text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-ruler-combined fa-2x mb-3"></i>
+                    <h5 class="card-title">Water Distance</h5>
+                    <p class="fs-5" id="distance">Loading...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-secondary text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-tint-slash fa-2x mb-3"></i>
+                    <h5 class="card-title">Water Level</h5>
+                    <p class="fs-5" id="waterLevelSensor">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-info text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-tint fa-2x mb-3"></i>
+                    <h5 class="card-title">Humidity</h5>
+                    <p class="fs-5" id="humidity">Loading...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-warning text-dark">
+                <div class="card-body text-center">
+                    <i class="fas fa-sun fa-2x mb-3"></i>
+                    <h5 class="card-title">Light Level</h5>
+                    <p class="fs-5" id="lightLevel">Loading...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-success text-white">
+                <div class="card-body text-center">
+                    <i class="fab fa-audible fa-2x mb-3"></i>
+                    <h5 class="card-title">Soil Moisture</h5>
+                    <p class="fs-5" id="soilMoisture">Loading...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 mb-3">
+            <div class="card shadow-lg border-0 bg-danger text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-thermometer-half fa-2x mb-3"></i>
+                    <h5 class="card-title">Temperature</h5>
+                    <p class="fs-5" id="temperature">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tank Visual -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="card-title mb-0 text-primary">
+                            <i class="fas fa-water me-2"></i>Water Tank Visualization
+                        </h5>
+                        <span class="badge bg-primary rounded-pill">
+                            <i class="fas fa-info-circle me-1"></i>Real-time
+                        </span>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <!-- Tank Visualization Column -->
+                        <div class="col-md-5 text-center">
+                            <div id="tank" style="position: relative; width: 180px; height: 300px; border: 6px solid #007bff; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: inset 0 0 20px rgba(0, 123, 255, 0.3); background: rgba(255, 255, 255, 0.7);">
+                                <div id="water" style="position: absolute; bottom: 0; width: 100%; transition: height 1s ease; background: linear-gradient(to top, #007bff 0%, #00b4ff 100%);">
+                                    <div id="percentageLabel" style="position: absolute; width: 100%; text-align: center; color: white; font-size: 1.8rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); top: 50%; transform: translateY(-50%);"></div>
+                                </div>
+                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 30%);"></div>
+                            </div>
+
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted small">0%</span>
+                                    <span class="text-muted small">100%</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div id="waterLevelProgress" class="progress-bar bg-primary" role="progressbar" style="width: 0%; transition: width 1s ease;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tank Info Column -->
+                        <div class="col-md-7">
+                            <div class="p-4 rounded" style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(0, 0, 0, 0.1);">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="mb-0 text-dark">
+                                        <i class="fas fa-info-circle text-primary me-2"></i>Tank Information
+                                    </h6>
+                                    <span id="waterStatusBadge" class="badge bg-success rounded-pill">Sufficient</span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Current Level:</span>
+                                        <span class="fw-bold" id="waterLevelText">Calculating...</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Tank Height:</span>
+                                        <span class="fw-bold text-primary" id="tankHeight">Calculating...</span>
+                                    </div>
+                                </div>
+
+                                <!-- Water Warning -->
+                                <div id="waterWarning" class="alert mb-4 d-none">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <span id="warningText"></span>
+                                </div>
+
+                                <!-- Set Tank Height Input -->
+                                <div class="mt-4">
+                                    <label for="tankHeightInput" class="form-label fw-semibold">
+                                        <i class="fas fa-ruler-vertical text-primary me-2"></i>Configure Tank Height
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fas fa-arrows-alt-v text-primary"></i>
+                                        </span>
+                                        <input type="number" id="tankHeightInput" class="form-control" placeholder="Enter height in cm" aria-label="Tank height">
+                                        <button onclick="updateTankHeight()" class="btn btn-primary">
+                                            <i class="fas fa-save me-1"></i>Update
+                                        </button>
+                                    </div>
+                                    <div id="heightUpdateMsg" class="mt-2 text-center small"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Automation Section -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-12">
+            <h3 class="mb-4 text-center text-primary">
+                <i class="fas fa-robot me-2"></i>Automation Control Panel
+            </h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+        <!-- Irrigation -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 text-white" style="background-color: #007bff;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-between text-center">
+                    <h5 class="card-title mb-3">Automated Irrigation</h5>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="irrigationSwitch" style="transform: scale(1.4);">
+                        <label class="form-check-label ms-2" for="irrigationSwitch">Irrigation</label>
+                    </div>
+                    <p id="irrigationStatusText" class="mb-0 small">Current Status: OFF</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fan -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 text-white" style="background-color: #212529;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-between text-center">
+                    <h5 class="card-title mb-3">Fan Automation</h5>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="fanAutomationSwitch" style="transform: scale(1.4);">
+                        <label class="form-check-label ms-2" for="fanAutomationSwitch">Fan</label>
+                    </div>
+                    <p id="fanStatusText" class="mb-0 small">Current Status: OFF</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buzzer -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 text-dark" style="background-color: #ffc107;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-between text-center">
+                    <h5 class="card-title mb-3">Alarm Automation</h5>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="alarmAutomationSwitch" style="transform: scale(1.4);">
+                        <label class="form-check-label ms-2" for="alarmAutomationSwitch">Buzzer</label>
+                    </div>
+                    <p id="alarmStatusText" class="mb-0 small">Current Status: OFF</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventilation -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 text-white" style="background-color: #28a745;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-between text-center">
+                    <h5 class="card-title mb-3">Ventilation Automation</h5>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="ventAutomationSwitch" style="transform: scale(1.4);">
+                        <label class="form-check-label ms-2" for="ventAutomationSwitch">Vent</label>
+                    </div>
+                    <p id="ventStatusText" class="mb-0 small">Current Status: OFF</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Relay Switches Alert Area-->
+    <div id="automationAlerts" class="mt-4"></div>
+
+    <!--Alarm Buzzer Alert Area-->
+    <div id="automationBuzzerAlerts" class="mt-4"></div>
+
+</div>
+
+<script>
+    const POLLING_INTERVAL = 1000; // 1 second
+    const sensor_Gap_Calibration = 2;
+    let tankHeight = 100;
+    let currentWarningLevel = null;
+
+    async function fetchSensorData() {
+        try {
+            const response = await fetch('/get_sensor_data_realtime');
+            const data = await response.json();
+
+            if (data.message) {
+                console.error(data.message);
+                return;
+            }
+
+            // Update sensor cards
+            document.getElementById('distance').textContent = `${data.distance} cm`;
+            document.getElementById('humidity').textContent = `${data.humidity} %`;
+            document.getElementById('lightLevel').textContent = `${data.lightLevel} lux`;
+            document.getElementById('soilMoisture').textContent = `${data.soilMoisture}`;
+            document.getElementById('temperature').textContent = `${data.temperature} °C`;
+            document.getElementById('waterLevelSensor').textContent = `${data.waterLevel}`;
+
+            // Automated Irrigation Switch
+            const irrigationSwitch = document.getElementById('irrigationSwitch');
+            irrigationSwitch.checked = data.automation_irrigation == 1;
+            document.getElementById('irrigationStatusText').textContent = irrigationSwitch.checked ? "Current Status: ON" : "Current Status: OFF";
+
+            //Fan automation Switch
+            const fanSwitch = document.getElementById('fanAutomationSwitch');
+            fanSwitch.checked = data.fan_automation == 1;
+            document.getElementById('fanStatusText').textContent = fanSwitch.checked ? "Current Status: ON" : "Current Status: OFF";
+
+            // Show Automation Alerts
+            const alertsContainer = document.getElementById('automationAlerts');
+            alertsContainer.innerHTML = '';
+            if (data.alerts && data.alerts.length > 0) {
+                data.alerts.forEach(alert => {
+                    const div = document.createElement('div');
+                    div.className = 'alert alert-warning';
+                    div.innerHTML = `${alert}`;
+                    alertsContainer.appendChild(div);
+                });
+            }
+
+            // Show Buzzer Alerts
+            const buzzerAlertContainer = document.getElementById('automationBuzzerAlerts');
+            buzzerAlertContainer.innerHTML = '';
+            if (data.alerts && data.buzzer_status == 1) {
+                data.alerts.forEach(alert => {
+                    const div = document.createElement('div');
+                    div.className = 'alert alert-danger';
+                    div.innerHTML = `<i class="fas fa-bell me-2"></i>${alert}`;
+                    buzzerAlertContainer.appendChild(div);
+                });
+            }
+
+            // Alarm automation Switch
+            const alarmSwitch = document.getElementById('alarmAutomationSwitch');
+            alarmSwitch.checked = data.automated_alarm == 1;
+            document.getElementById('alarmStatusText').textContent = alarmSwitch.checked ? "Current Status: ON" : "Current Status: OFF";
+
+            const ventSwitch = document.getElementById('ventAutomationSwitch');
+            ventSwitch.checked = data.vent_status == 1;
+            document.getElementById('ventStatusText').textContent = ventSwitch.checked ? "Current Status: ON" : "Current Status: OFF";
+
+            // Custom Ventilation Automation Alerts
+            if (data.vent_status == 1) {
+                const temp = parseFloat(data.temperature);
+
+                if (temp > 35) {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-info';
+                    alertDiv.innerHTML = "🌬️ Temperature is above 35°C. Ventilation windows are opened for cooling.";
+                    alertsContainer.appendChild(alertDiv);
+                } else {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-secondary';
+                    alertDiv.innerHTML = "✅ Ventilation automation is ON, but temperature is optimal. No need to open windows.";
+                    alertsContainer.appendChild(alertDiv);
+                }
+            }
+
+            // Tank Visualization
+            updateTankVisualization(parseFloat(data.distance));
+
+        } catch (error) {
+            console.error('Error fetching sensor data:', error);
+        }
+    }
+
+    function updateTankVisualization(distance) {
+        const calibratedDistance = Math.max(0, distance - sensor_Gap_Calibration);
+        let percentage = ((tankHeight - calibratedDistance) / tankHeight) * 100;
+        percentage = Math.max(0, Math.min(percentage, 100));
+
+        document.getElementById('water').style.height = `${percentage}%`;
+        document.getElementById('percentageLabel').textContent = `${percentage.toFixed(1)}%`;
+        document.getElementById('waterLevelProgress').style.width = `${percentage}%`;
+
+        const waterStatusBadge = document.getElementById('waterStatusBadge');
+        if (percentage > 50) {
+            waterStatusBadge.className = 'badge bg-success rounded-pill';
+            waterStatusBadge.innerHTML = '<i class="fas fa-check-circle me-1"></i>Sufficient';
+        } else if (percentage > 30) {
+            waterStatusBadge.className = 'badge bg-warning rounded-pill';
+            waterStatusBadge.innerHTML = '<i class="fas fa-exclamation-triangle me-1"></i>Low';
+        } else {
+            waterStatusBadge.className = 'badge bg-danger rounded-pill';
+            waterStatusBadge.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i>Critical';
+        }
+
+        // Water Level Info
+        const waterLevelText = `Water Level: ${percentage.toFixed(1)}% (${(tankHeight - calibratedDistance).toFixed(1)} cm)`;
+        document.getElementById('waterLevelText').textContent = waterLevelText;
+        document.getElementById('tankHeight').textContent = `${tankHeight} cm`;
+
+        // Warnings
+        const warning = document.getElementById('waterWarning');
+        const warningText = document.getElementById('warningText');
+        let newWarningLevel = null;
+
+        if (percentage <= 30) newWarningLevel = 'critical';
+        else if (percentage <= 50) newWarningLevel = 'low';
+        else newWarningLevel = 'ok';
+
+        if (newWarningLevel !== currentWarningLevel) {
+            currentWarningLevel = newWarningLevel;
+            warning.classList.remove('d-none');
+
+            if (newWarningLevel === 'critical') {
+                warning.className = 'alert alert-danger mb-4';
+                warningText.innerHTML = '<strong>Critical:</strong> Water level is below 30%! Please refill soon.';
+            } else if (newWarningLevel === 'low') {
+                warning.className = 'alert alert-warning mb-4';
+                warningText.innerHTML = '<strong>Warning:</strong> Water level below 50%. Consider refilling.';
+            } else {
+                warning.className = 'alert alert-success mb-4';
+                warningText.innerHTML = '<strong>Good:</strong> Water level is sufficient.';
+            }
+        }
+    }
+
+    async function fetchTankHeight() {
+        try {
+            const response = await fetch('/get_tank_height');
+            const data = await response.json();
+            tankHeight = data.tank_height_cm || 100;
+            document.getElementById('tankHeight').textContent = `${tankHeight} cm`;
+            document.getElementById('tankHeightInput').value = tankHeight;
+        } catch (error) {
+            console.error('Error fetching tank height:', error);
+        }
+    }
+
+    async function updateTankHeight() {
+        const inputVal = document.getElementById('tankHeightInput').value;
+        const msg = document.getElementById('heightUpdateMsg');
+
+        if (!inputVal || parseInt(inputVal) <= 0) {
+            msg.innerHTML = '<span class="text-danger"><i class="fas fa-times-circle me-1"></i>Please enter a valid positive number.</span>';
+            return;
+        }
+
+        try {
+            const response = await fetch('/set_tank_height', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'height=' + inputVal
+            });
+            const data = await response.json();
+            msg.innerHTML = '<span class="text-success"><i class="fas fa-check-circle me-1"></i>' + data.message + '</span>';
+            await fetchTankHeight();
+            setTimeout(() => msg.innerHTML = '', 3000);
+        } catch (error) {
+            console.error('Error updating height:', error);
+            msg.innerHTML = '<span class="text-danger"><i class="fas fa-times-circle me-1"></i>Error updating height.</span>';
+        }
+    }
+
+    async function updateIrrigationStatus() {
+        const status = document.getElementById('irrigationSwitch').checked ? 1 : 0;
+        document.getElementById('irrigationStatusText').textContent = status === 1 ? "Current Status: ON" : "Current Status: OFF";
+
+        try {
+            const response = await fetch('/update_irrigation_automation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'status=' + status
+            });
+            const data = await response.json();
+            console.log("Irrigation automation updated:", data);
+        } catch (error) {
+            console.error('Error updating irrigation automation:', error);
+        }
+    }
+
+
+    async function updateFanAutomationStatus() {
+        const status = document.getElementById('fanAutomationSwitch').checked ? 1 : 0;
+        document.getElementById('fanStatusText').textContent = status === 1 ? "Current Status: ON" : "Current Status: OFF";
+
+        try {
+            const response = await fetch('/update_fan_automation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'status=' + status
+            });
+            const data = await response.json();
+            console.log("Fan automation updated:", data);
+        } catch (error) {
+            console.error('Error updating fan automation status:', error);
+        }
+    }
+
+    async function updateAlarmAutomationStatus() {
+        const status = document.getElementById('alarmAutomationSwitch').checked ? 1 : 0;
+        document.getElementById('alarmStatusText').textContent = status === 1 ? "Current Status: ON" : "Current Status: OFF";
+
+        try {
+            const response = await fetch('/update_alarm_automation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'status=' + status
+            });
+            const data = await response.json();
+            console.log("Alarm automation updated:", data);
+        } catch (error) {
+            console.error('Error updating alarm automation:', error);
+        }
+    }
+
+    async function updateVentAutomationStatus() {
+        const status = document.getElementById('ventAutomationSwitch').checked ? 1 : 0;
+        document.getElementById('ventStatusText').textContent = status === 1 ? "Current Status: ON" : "Current Status: OFF";
+
+        try {
+            const response = await fetch('/update_vent_automation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'status=' + status
+            });
+            const data = await response.json();
+            console.log("Vent automation updated:", data);
+        } catch (error) {
+            console.error('Error updating vent automation:', error);
+        }
+    }
+
+
+    window.onload = function () {
+        fetchTankHeight();
+        fetchSensorData();
+        setInterval(fetchSensorData, POLLING_INTERVAL);
+
+        document.getElementById('irrigationSwitch').addEventListener('change', updateIrrigationStatus);
+        document.getElementById('fanAutomationSwitch').addEventListener('change', updateFanAutomationStatus);
+        document.getElementById('alarmAutomationSwitch').addEventListener('change', updateAlarmAutomationStatus);
+        document.getElementById('ventAutomationSwitch').addEventListener('change', updateVentAutomationStatus);
+
+
+    };
+</script>
+
+{% endblock %}
